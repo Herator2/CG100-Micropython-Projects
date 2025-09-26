@@ -97,6 +97,39 @@ class Snake:
 #def getkey():
 #    return 23
 
+# Splash screen
+clear_screen()
+draw_string(20,20,"Made by Alex")
+draw_string(20,40,"github.com/Herator2")
+show_screen()
+for x in range(1):
+    ramp_up = range(1, 255, 4) 
+    ramp_down = range(255, -1, -4) 
+    g = 0
+    for g in ramp_up:
+        draw_rect(9, 20, 11, 60, (255, g, 0))
+        show_screen()
+    r = 255
+    for r in ramp_down:
+        draw_rect(9, 20, 11, 60, (r, 255, 0))
+        show_screen()
+    b = 0
+    for b in ramp_up:
+        draw_rect(9, 20, 11, 60, (0, 255, b))
+        show_screen()
+    g = 255
+    for g in ramp_down:
+        draw_rect(9, 20, 11, 60, (0, g, 255))
+        show_screen()
+    r = 0
+    for r in ramp_up:
+        draw_rect(9, 20, 11, 60, (r, 0, 255))
+        show_screen()
+    b = 255
+    for b in ramp_down:
+        draw_rect(9, 20, 11, 60, (255, 0, b))
+        show_screen()
+
 # Game restarts from here
 while True:
     # Startup
