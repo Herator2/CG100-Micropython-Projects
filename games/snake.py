@@ -1,6 +1,6 @@
 
 # https://github.com/Herator2/CG100-Micropython-Projects
-# Made by Alex VDR :)
+# Made by Alex VDE :)
 
 from casioplot import *
 from random import *
@@ -204,7 +204,7 @@ while True:
         # Display
         show_screen()
         
-    # Fucking imbicile you died
+    # You died lmao
     clear_screen()
     if deathmethod == "wall":
         draw_string(20, 50, choice(["Where's the spatial awareness?"]))
