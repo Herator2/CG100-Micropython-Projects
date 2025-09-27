@@ -82,9 +82,6 @@ class Snake:
             if self.positions[0].y == fruit.position.y:
                 return True
         return False
-    
-def getkey():
-    return 23
 
 splash_screen()
 
