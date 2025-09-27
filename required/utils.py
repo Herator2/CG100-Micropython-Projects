@@ -68,10 +68,11 @@ def draw_circle_circumference(cx, cy, radius, thickness, color):
         _bresenham_core(cx, cy, r, color, _plot_octant_pixels)
 
 # My splash screen - For games
-def splash_screen():
+def splash_screen(version):
     clear_screen()
     draw_string(20,20,"Made by Alex")
     draw_string(20,40,"casio.alexvde.dev")
+    draw_string(10,170,version)
     show_screen()
     for x in range(1):
         ramp_up = range(1, 255, 4) 

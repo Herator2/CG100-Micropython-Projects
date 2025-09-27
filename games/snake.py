@@ -7,6 +7,9 @@ except:
     print("Failed to import core utility 'utils.py'\nPlease download from casio.alexvde.dev and place alongside this\n - Alex :)")
     quit()
 
+# Config - Main
+VERSION = "0.1.0r"
+
 # Config - Points
 BASIC_FRUIT_POINTS = 1
 SPECIAL_FRUIT_POINTS = 5
@@ -83,7 +86,7 @@ class Snake:
                 return True
         return False
 
-splash_screen()
+splash_screen(VERSION)
 
 # Game restarts from here
 while True:
