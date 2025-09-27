@@ -88,7 +88,7 @@ splash_screen()
 # Game restarts from here
 while True:
     # Main menu
-    pos = 1
+    pos = 0
     current_key = 0
     while True:
         # Up and down
