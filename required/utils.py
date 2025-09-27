@@ -28,7 +28,7 @@ def _plot_solid_octant_spans(cx, cy, x, y, color):
             set_pixel(i, cy - x, color) # Lower half, inner section
 
 # Plots the octant points of a circumference
-def _plot_octant_pixels(cx, cy, x, y, place_pixel_func):
+def _plot_octant_pixels(cx, cy, x, y, color):
     set_pixel(cx + x, cy + y, color)
     set_pixel(cx - x, cy + y, color)
     set_pixel(cx + x, cy - y, color)

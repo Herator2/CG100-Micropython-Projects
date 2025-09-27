@@ -2,8 +2,10 @@
 # https://github.com/Herator2/CG100-Micropython-Projects
 # Made by Alex VDE :)
 
-from casioplot import *
-from random import *
+try: from utils import *
+except:
+    print("Failed to import core utility 'utils.py'\nPlease download from casio.alexvde.dev and place alongside this\n - Alex :)")
+    quit()
 
 # Config - Points
 BASIC_FRUIT_POINTS = 1
@@ -21,19 +23,6 @@ AREA_LOCATION_X = 7
 AREA_LOCATION_Y = 4
 X2_WALL = 22
 Y2_WALL = 11
-
-def enumerate(iterable):
-    n = 0
-    for item in iterable:
-        yield (n, item)
-        n += 1
-
-def draw_rect(start_x, start_y, end_x, end_y, color):
-    width = abs(end_x - start_x)
-    height = abs(end_y - start_y)
-    for x in range(width + 1):
-        for y in range(height + 1):
-            set_pixel(start_x + x, start_y + y, color)
 
 class Vec2:
     def __init__(self, x, y):
@@ -94,44 +83,44 @@ class Snake:
                 return True
         return False
     
-#def getkey():
-#    return 23
+def getkey():
+    return 23
 
-# Splash screen
-clear_screen()
-draw_string(20,20,"Made by Alex")
-draw_string(20,40,"github.com/Herator2")
-show_screen()
-for x in range(1):
-    ramp_up = range(1, 255, 4) 
-    ramp_down = range(255, -1, -4) 
-    g = 0
-    for g in ramp_up:
-        draw_rect(9, 20, 11, 60, (255, g, 0))
-        show_screen()
-    r = 255
-    for r in ramp_down:
-        draw_rect(9, 20, 11, 60, (r, 255, 0))
-        show_screen()
-    b = 0
-    for b in ramp_up:
-        draw_rect(9, 20, 11, 60, (0, 255, b))
-        show_screen()
-    g = 255
-    for g in ramp_down:
-        draw_rect(9, 20, 11, 60, (0, g, 255))
-        show_screen()
-    r = 0
-    for r in ramp_up:
-        draw_rect(9, 20, 11, 60, (r, 0, 255))
-        show_screen()
-    b = 255
-    for b in ramp_down:
-        draw_rect(9, 20, 11, 60, (255, 0, b))
-        show_screen()
+splash_screen()
 
 # Game restarts from here
 while True:
+    # Main menu
+    pos = 1
+    current_key = 0
+    while True:
+        # Up and down
+        if getkey() == 34 and getkey() != current_key: pos+=1
+        elif getkey() == 14 and getkey() != current_key: pos-=1
+        if pos < 0: pos = 2
+        elif pos > 2: pos = 0
+        current_key = getkey()
+        
+        # Select
+        if getkey() == 24:
+            if pos == 2: quit()
+            elif pos == 1: pass
+            else: break
+        
+        # Render
+        clear_screen()
+        draw_circle_circumference(20,48,5,3,(0,0,0))
+        draw_circle_circumference(20,68,5,3,(0,0,0))
+        draw_circle_circumference(20,88,5,3,(0,0,0))
+        draw_string(20,15, "Snake or something")
+        draw_string(40,40, "Play")
+        draw_string(40,60, "Change Difficulty - TODO")
+        draw_string(40,80, "Quit")
+        if pos == 0: draw_circle_solid(20,48,3,(0,128,255))
+        elif pos == 1: draw_circle_solid(20,68,3,(0,128,255))
+        elif pos == 2: draw_circle_solid(20,88,3,(0,128,255))
+        show_screen()
+    
     # Startup
     s = Snake()
     fruits = []
